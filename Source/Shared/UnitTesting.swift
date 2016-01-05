@@ -7,7 +7,7 @@ public struct UnitTesting {
     return NSProcessInfo.processInfo().environment["XCInjectBundle"] != nil
   }
 
-  public static func measure(closure: () -> Void) -> Float {
+  public static func measure(@noescape closure: () -> Void) -> Float {
     let start = CACurrentMediaTime()
     closure()
     let end = CACurrentMediaTime()
