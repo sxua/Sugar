@@ -1,6 +1,6 @@
 import Foundation
 
-public func delay(delay:Double, closure: () -> Void) {
+public func delay(delay:Double, @autoclosure(escaping) closure: () -> Void) {
   dispatch_after(
     dispatch_time(
       DISPATCH_TIME_NOW,
@@ -17,7 +17,7 @@ public enum DispatchQueue {
   case Main, Interactive, Initiated, Utility, Background, Custom(dispatch_queue_t)
 }
 
-public func dispatch(queue queueType: DispatchQueue = .Main, closure: () -> Void) {
+public func dispatch(queue queueType: DispatchQueue = .Main, @autoclosure(escaping) closure: () -> Void) {
   let queue: dispatch_queue_t
 
   switch queueType {
